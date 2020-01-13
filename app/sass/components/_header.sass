@@ -1,0 +1,108 @@
+.header
+	position: absolute
+	z-index: 10
+	top: 0
+	left: 0
+	width: 100%
+	background: rgba(11, 20, 25, 0.9)
+	padding: rem(22px) 0
+	overflow: hidden
+
+.header__container
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+.nav-wrap,
+.nav__list
+	display: flex
+	align-items: center
+
+.nav__link
+	+font($default_font, rem(18px), $default_color, 800)
+	text-decoration: none
+	padding: rem(35px) rem(30px)
+	background: transparent
+	transition: 0.2s
+.nav__link:hover
+	color: $second_color
+	background: #fff
+
+.phone a
+	+font($default_font, rem(16px), $default_color, 800)
+	text-decoration: none
+	padding: rem(10px) rem(14px)
+	border: 2px solid #fff
+	border-radius: 50px
+.phone a:hover
+	background: #212121
+	color: #f7f7f7
+
+.menu__btn
+	display: none
+
+	margin-left: 30px
+	width: 40px
+	height: 40px
+	position: relative
+	z-index: 1
+	cursor: pointer
+.menu__btn span,
+.menu__btn span:before,
+.menu__btn span:after
+	content: ''
+	position: absolute
+	z-index: -1
+	top: calc(50% - 2px)
+	left: calc(50% - 20px)
+	width: 40px
+	height: 4px
+	background: #fff
+	transition: .2s
+.menu__btn span:before
+	transform: translateY(-11px)
+.menu__btn span:after
+	transform: translateY(11px)
+
+
+.menu__btn_active span
+	height: 0
+.menu__btn_active span:before
+	transform: rotate(-45deg)
+.menu__btn_active span:after
+	transform: rotate(45deg)
+
+
+@media(max-width: 920px)
+	.header
+		overflow: visible
+
+	.nav
+		position: absolute
+		top: 0
+		right: 0
+		background: #212121
+		box-shadow: 0 0 14px -1px #fff
+		width: 320px
+		transform: translateX(110%)
+		transition: .3s ease
+	.nav_active
+		transform: translateX(0)
+
+	.nav__list
+		padding: 22px 0
+		flex-direction: column
+	.nav__item
+		margin-bottom: 15px
+	.nav__item:last-child
+		margin-bottom: 0
+	.nav__link
+		display: block
+		padding: rem(10px) rem(15px)
+
+	.menu__btn
+		display: block
+
+@media(max-width: 600px)
+	.phone
+		display: none

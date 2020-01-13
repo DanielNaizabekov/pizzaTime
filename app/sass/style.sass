@@ -1,0 +1,46 @@
+@import "../../node_modules/normalize.css/normalize"
+@import "mixin";
+@import "vars";
+@import "fonts";
+
+@import "./components/_header";
+@import "./components/_section-top";
+@import "./components/_catalog";
+
+// default settings
+html, body
+	margin: 0
+	padding: 0
+	width: 100%
+	height: 100%
+	font-family: $default_font
+	color: $default_color
+	font-size: 16px
+
+ul, li
+	margin: 0
+	padding: 0
+	display: block
+
+h1,h2,h3,h4,h5,p
+	margin: 0
+	padding: 0
+
+*
+	box-sizing: border-box
+
+.wrapper
+	overflow: hidden
+	position: relative
+	min-height: 100%
+
+.container
+	max-width: 1270px
+	margin: 0 auto
+	padding: 0 15px
+
+section
+	padding: rem(100px) 0
+
+.title
+	+font($default_font, rem(48px), $default_color, 800)

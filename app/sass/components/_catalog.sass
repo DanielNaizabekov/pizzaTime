@@ -1,0 +1,141 @@
+.catalog__header
+	max-width: 650px
+	margin: 0 auto
+	text-align: center
+	margin-bottom: rem(95px)
+
+.catalog__title
+	color: #ffa650 !important
+	margin-bottom: rem(35px)
+
+.catalog__nav-list
+	display: flex
+	border-radius: 50px
+	overflow: hidden
+
+.catalog__nav-item
+	flex: 1
+	border-right: 1px solid #e5e5e5
+.catalog__nav-item:last-child
+	border: 0
+
+.catalog__nav-item span
+	+font($default_font, rem(18px), #e6e6e6, 800)
+	padding: rem(15px) 0
+	display: inline-block
+	height: 100%
+	width: 100%
+	cursor: pointer
+.catalog__nav-item span:hover
+	background: #1f1f1f
+	color: $default_color
+
+.catalog__nav-item_active span
+	background: #1f1f1f
+	color: $default_color
+
+
+//===products===
+.product__list
+	display: flex
+	flex-wrap: wrap
+	margin-left: -40px
+	margin-right: -40px
+
+.product__item
+	width: calc(100% / 3)
+	padding: 0 rem(40px)
+	display: flex
+	flex-direction: column
+	justify-content: flex-start
+	border-left: 2px solid #f7f7f7
+	margin-bottom: rem(100px)
+.product__item:nth-child(3n+1)
+	border-left: 0
+
+.product__img
+	width: 100%
+	height: auto
+	margin-bottom: rem(25px)
+
+.product__name,
+.product__price
+	+font($default_font, rem(22px), $second_color, 800)
+	margin-bottom: rem(8px)
+.product__price
+	margin: 0
+
+.product__description
+	+font($second_font, rem(16px), $thirth_color, 300)
+	margin-bottom: rem(25px)
+	line-height: 19px
+	flex: 1
+
+.product__size
+	display: flex
+	justify-content: space-between
+	box-shadow: 0 0 14px 0 #ccc
+	border-radius: 40px
+	margin-bottom: rem(38px)
+
+.product__size-btn
+	+font($default_font, rem(16px), #e6e6e6, 800)
+	border: 0
+	background: #fff
+	padding: rem(12px) 0
+	flex: 1
+	border-radius: 40px
+	position: relaive
+	cursor: pointer
+	outline: none
+
+.product__size-btn_active
+	color: #a2a2a2
+	z-index: 10
+	box-shadow: 0 0 9px 3px #ccc
+
+.product__bottom
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+.product__order
+	+font($default_font, rem(16px), $default_color, 800)
+	background: #ffa650
+	padding: rem(15px) rem(55px)
+	border-radius: 50px
+	border: 0
+//===products===
+
+
+
+@media(max-width: 990px)
+	.product__item
+		width: 50%
+
+
+@media(max-width: 768px)
+	.catalog__nav-list
+		flex-wrap: wrap
+		border-radius: 20px
+
+	.catalog__nav-item
+		min-width: 50%
+		border: 0
+	.catalog__nav-item:nth-child(odd)
+		border-right: 1px solid #e5e5e5
+	.catalog__nav-item:nth-child(3),
+	.catalog__nav-item:nth-child(4)
+		border-top: 1px solid #e5e5e5
+
+
+@media(max-width: 660px)
+	.product-wrap
+		display: flex
+		justify-content: center
+
+	.product__list
+		max-width: 520px
+
+	.product__item
+			width: 100%

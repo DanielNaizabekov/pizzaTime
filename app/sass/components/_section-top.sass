@@ -1,0 +1,62 @@
+.section-top
+	height: 100vh
+	background: url('../img/header-bg.jpg') center no-repeat / cover
+	position: relative
+.section-top:before
+	content: ''
+	position: absolute
+	z-index: 4
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background: rgba(0,0,0, 0.6)
+
+
+.section-top__container
+	position: relative
+	z-index: 5
+	width: 100%
+	height: 100%
+	display: flex
+	justify-content: center
+	align-items: center
+
+.section-top__content
+	margin-top: 69px
+	max-width: 455px
+	text-align: center
+
+.section-top__subtitle
+	+font($default_font, rem(24px), #fcff00, 800)
+	display: block
+	margin-bottom: rem(5px)
+
+.section-top__title
+	+font($default_font, rem(55px), $default_color, 800)
+
+.section-top__btn
+	+font($default_font, rem(18px), $default_color, 800)
+	text-decoration: none
+	background: #ff5441
+	padding: rem(18px) rem(74px)
+	border-radius: 50px
+	display: inline-block
+	margin-top: rem(35px)
+	box-shadow: 0 0 27px 6px #7d4444
+	transition: .2s
+.section-top__btn:hover
+	background: #e44534
+
+.section-top__btn:active
+	transform: scale(0.98)
+
+@media(max-width: 768px)
+	.section-top__subtitle
+		font-size: rem(21px)
+
+	.section-top__title
+		font-size: rem(35px)
+
+	.section-top__btn
+		padding: rem(14px) rem(64px)
