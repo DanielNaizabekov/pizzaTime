@@ -126,4 +126,25 @@ $(function() {
 
 	//===changeBtnPosition===
 	//===size button===
+
+
+
+	//===scroll===
+	let linkBtn = document.getElementsByClassName('nav__link');
+
+	for(let i = 0; i < linkBtn.length; i++) {
+		linkBtn[i].onclick = (event) => {
+			event.preventDefault();
+			startScroll(event);
+		};
+	};
+
+	function startScroll(event) {
+		document.body.classList.remove('body_active');
+
+		let attribute = event.target.getAttribute('href');
+
+		document.querySelector(attribute).scrollIntoView({block: "start", behavior: "smooth"});
+	};
+	//===scroll===
 });
