@@ -81,6 +81,17 @@
 	border-radius: 40px
 	margin-bottom: rem(38px)
 	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.05)
+	position: relative
+
+.btn-cover
+	position: absolute
+	top: 0
+	left: 0
+	width: 33.33%
+	height: 100%
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08)
+	border-radius: 40px
+	transition: .4s
 
 .product__size-btn
 	+font($default_font, rem(16px), #e6e6e6, 800)
@@ -89,14 +100,11 @@
 	padding: rem(12px) 0
 	flex: 1
 	border-radius: 40px
-	position: relaive
 	cursor: pointer
 	outline: none
 
 .product__size-btn_active
 	color: #a2a2a2
-	z-index: 10
-	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08)
 
 .product__bottom
 	display: flex
