@@ -12,6 +12,7 @@
 	display: flex
 	border-radius: 50px
 	overflow: hidden
+	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.05)
 
 .catalog__nav-item
 	flex: 1
@@ -29,6 +30,9 @@
 .catalog__nav-item span:hover
 	background: #1f1f1f
 	color: $default_color
+
+.catalog__nav-item_active
+	border-color: #1f1f1f
 
 .catalog__nav-item_active span
 	background: #1f1f1f
@@ -74,9 +78,9 @@
 .product__size
 	display: flex
 	justify-content: space-between
-	box-shadow: 0 0 14px 0 #ccc
 	border-radius: 40px
 	margin-bottom: rem(38px)
+	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.05)
 
 .product__size-btn
 	+font($default_font, rem(16px), #e6e6e6, 800)
@@ -92,7 +96,7 @@
 .product__size-btn_active
 	color: #a2a2a2
 	z-index: 10
-	box-shadow: 0 0 9px 3px #ccc
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08)
 
 .product__bottom
 	display: flex
@@ -105,13 +109,23 @@
 	padding: rem(15px) rem(55px)
 	border-radius: 50px
 	border: 0
+	cursor: pointer
+	outline: none
+	transition: .1s
+.product__order:hover
+	background: #ec9948
+.product__order:active
+	transform: scale(0.96)
 //===products===
 
 
 
 @media(max-width: 990px)
 	.product__item
+		border: 0
 		width: 50%
+	.product__item:nth-child(odd)
+		border-right: 1px solid #e5e5e5
 
 
 @media(max-width: 768px)
@@ -138,4 +152,11 @@
 		max-width: 520px
 
 	.product__item
-			width: 100%
+		border: 0 !important
+		border-bottom: 1px solid #e5e5e5 !important
+		width: 100%
+		margin-bottom: rem(50px)
+		padding-bottom: rem(50px)
+	.product__item:last-child
+		padding-bottom: 0
+		border: 0 !important

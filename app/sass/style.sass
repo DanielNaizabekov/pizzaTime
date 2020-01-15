@@ -1,11 +1,8 @@
 @import "../../node_modules/normalize.css/normalize"
-@import "mixin";
-@import "vars";
-@import "fonts";
+@import "mixin"
+@import "vars"
+@import "fonts"
 
-@import "./components/_header";
-@import "./components/_section-top";
-@import "./components/_catalog";
 
 // default settings
 html, body
@@ -33,6 +30,7 @@ h1,h2,h3,h4,h5,p
 	overflow: hidden
 	position: relative
 	min-height: 100%
+// default settings
 
 .container
 	max-width: 1270px
@@ -44,3 +42,17 @@ section
 
 .title
 	+font($default_font, rem(48px), $default_color, 800)
+
+
+
+@import "./components/_header"
+@import "./components/_section-top"
+@import "./components/_catalog"
+@import "./components/_about-section"
+@import "./components/_contacts"
+@import "./components/_footer"
+
+
+@media(max-width: 600px)
+	.title
+		font-size: rem(40px)
