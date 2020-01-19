@@ -6,8 +6,6 @@ $(function() {
 	let menuToggler = false;
 
 	document.querySelector('.menu__btn').onclick = () => {
-		document.body.classList.toggle('body_active');
-
 		document.querySelector('.nav-wrap').classList.toggle('nav-wrap_active');
 
 		setTimeout(() => {
@@ -140,8 +138,6 @@ $(function() {
 	};
 
 	function startScroll(event) {
-		document.body.classList.remove('body_active');
-
 		let attribute = event.target.getAttribute('href');
 
 		document.querySelector(attribute).scrollIntoView({block: "start", behavior: "smooth"});
