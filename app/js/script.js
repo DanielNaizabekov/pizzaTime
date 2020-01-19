@@ -143,4 +143,35 @@ $(function() {
 		document.querySelector(attribute).scrollIntoView({block: "start", behavior: "smooth"});
 	};
 	//===scroll===
+
+
+
+	//===popup close btn===
+	let popupCloseBtn = document.getElementsByClassName('popup__btn');
+
+	for(let i = 0; i < popupCloseBtn.length; i++) {
+		popupCloseBtn[i].addEventListener('click', () => {
+			let popup = document.getElementsByClassName('popup');
+
+			for(let k = 0; k < popup.length; k++) {
+				popup[k].classList.remove('popup_active');
+			};
+		});
+	};
+	//===popup close btn===
+
+
+
+	//===order===
+	let orderBtn = document.getElementsByClassName('product__order');
+
+	for(let i = 0; i < orderBtn.length; i++) {
+		orderBtn[i].addEventListener('click', (event) => {
+			event.preventDefault();
+			let orderPopup = document.getElementById('order-popup')
+
+			orderPopup.classList.add('popup_active');
+		});
+	};
+	//===order===
 });
