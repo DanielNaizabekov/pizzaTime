@@ -76,6 +76,10 @@
 .nav-wrap_active .menu__btn span:after
 	transform: rotate(45deg)
 
+.nav__list .phone,
+.nav__list .networks
+	display: none
+
 
 @media(max-width: 920px)
 	.header
@@ -128,8 +132,7 @@
 	.nav__item:nth-child(2)
 		transition-delay: .4s
 
-	.nav__item:last-child
-		margin-bottom: 0
+	.nav__item:nth-child(3)
 		transition-delay: .6s
 
 	.nav__link
@@ -140,15 +143,29 @@
 	.menu__btn
 		display: block
 
+	.nav__list .phone,
+	.nav__list .networks
+		transition: .5s linear
+		transition-delay: .6s
+		opacity: 0
+		transform: translateX(20%)
+
 	.nav__list .phone
+		display: block
 		margin-top: rem(30px)
 
 	.nav__list .networks
+		display: flex
+		justify-content: space-between
 		margin-top: rem(40px)
+		width: 120px
+
+	.nav-wrap_active .nav__list .phone,
+	.nav-wrap_active .nav__list .networks
+		transform: translateX(0)
+		opacity: 1
+		
 
 @media(max-width: 600px)
 	.phone
 		display: none
-
-	.nav__list .phone
-		display: block
