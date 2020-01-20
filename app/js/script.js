@@ -81,9 +81,12 @@ $(function() {
 
 
 	//===setAttrbuteToBtns===
-	let productSize2 = document.getElementsByClassName('product__size');
-	for(let i = 0; i < productSize2.length; i++) {
-		let productSizeChildren = productSize2[i].children
+	let productOrder = document.getElementsByClassName('product__order');
+
+	for(let i = 0; i < productSize.length; i++) {
+		productOrder[i].setAttribute('data-product', `pizza${i}`);
+
+		let productSizeChildren = productSize[i].children
 
 		let size = 35
 		for(let k = 0; k < productSizeChildren.length; k++) {
@@ -98,15 +101,15 @@ $(function() {
 
 	//===setPizzaPrices===
 	let Pizza = {
-		pizza0: {35: 850, 30: 740, 25: 630},
-		pizza1: {35: 950, 30: 840, 25: 730},
-		pizza2: {35: 880, 30: 770, 25: 660},
-		pizza3: {35: 1250, 30: 1130, 25: 1010},
-		pizza4: {35: 890, 30: 780, 25: 670},
-		pizza5: {35: 850, 30: 740, 25: 630},
-		pizza6: {35: 920, 30: 810, 25: 700},
-		pizza7: {35: 990, 30: 880, 25: 770},
-		pizza8: {35: 950, 30: 840, 25: 730},
+		pizza0: {35: 850, 30: 740, 25: 630, currentSize: 35, name: 'Салями'},
+		pizza1: {35: 950, 30: 840, 25: 730, currentSize: 35, name: 'Хит'},
+		pizza2: {35: 880, 30: 770, 25: 660, currentSize: 35, name: 'Ветчина-грибы'},
+		pizza3: {35: 1250, 30: 1130, 25: 1010, currentSize: 35, name: 'Карбонара'},
+		pizza4: {35: 890, 30: 780, 25: 670, currentSize: 35, name: 'Фирменная'},
+		pizza5: {35: 850, 30: 740, 25: 630, currentSize: 35, name: 'Ассорти'},
+		pizza6: {35: 920, 30: 810, 25: 700, currentSize: 35, name: 'Л-01'},
+		pizza7: {35: 990, 30: 880, 25: 770, currentSize: 35, name: 'Три сыра'},
+		pizza8: {35: 950, 30: 840, 25: 730, currentSize: 35, name: 'Мясная'},
 	}
 	//===setPizzaPrices===
 
@@ -116,6 +119,8 @@ $(function() {
 		let product = event.target.getAttribute('data-product');
 		let size = event.target.getAttribute('data-size');
 		let price = Pizza[product][size];
+
+		Pizza[product].currentSize = size
 
 		event.target.parentNode.parentNode.querySelector('.product__price').innerHTML = price + ' ' + '₽';
 	};
@@ -146,32 +151,53 @@ $(function() {
 
 
 
-	//===popup close btn===
-	let popupCloseBtn = document.getElementsByClassName('popup__btn');
+	//===popup close===
+	let popupContent = document.getElementsByClassName('popup__content');
+	for(let i = 0; i < popupContent.length; i++) {
+		popupContent[i].onclick = (event) => {
+			event.stopPropagation();
 
-	for(let i = 0; i < popupCloseBtn.length; i++) {
-		popupCloseBtn[i].addEventListener('click', () => {
-			let popup = document.getElementsByClassName('popup');
+			if(event.target.className !== 'btn-inner') {
+				return null;
+			}
 
 			for(let k = 0; k < popup.length; k++) {
 				popup[k].classList.remove('popup_active');
 			};
-		});
+		};
 	};
-	//===popup close btn===
 
 
+	let popup = document.getElementsByClassName('popup');
+
+	document.getElementById('popup__inner').onclick = () => {
+		for(let i = 0; i < popup.length; i++) {
+			popup[i].classList.remove('popup_active');
+		};
+	};
+	//===popup close===
 
 	//===order===
-	let orderBtn = document.getElementsByClassName('product__order');
+	document.getElementById('product__list').onclick = (event) => {
+		let target = event.target;
 
-	for(let i = 0; i < orderBtn.length; i++) {
-		orderBtn[i].addEventListener('click', (event) => {
-			event.preventDefault();
-			let orderPopup = document.getElementById('order-popup')
+		if(target.className !== 'product__order') {
+			return null;
+		}
 
-			orderPopup.classList.add('popup_active');
-		});
+		document.getElementById('order-popup').classList.add('popup_active');
+
+
+		let product = event.target.getAttribute('data-product');
+		let productImg = target.parentNode.parentNode.querySelector('.product__img').getAttribute('src');
+
+		let name = Pizza[product].name;
+		let size = Pizza[product].currentSize;
+		let price = Pizza[product][size];
+
+		document.querySelector('.popup__price').innerHTML = `${name} ${price} ₽`
+		document.querySelector('.popup__pizza-size').innerHTML = size
+		document.querySelector('.popup__img').setAttribute('src', productImg)
 	};
 	//===order===
 });
