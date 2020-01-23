@@ -26,27 +26,6 @@ $(function() {
 
 
 
-
-	//===changeProductItemMargin===
-	let productItem = document.querySelector('.product__item:last-child');
-
-	function changeProductItemMargin() {
-		if(document.documentElement.clientWidth >= 990 ) {
-			productItem.style.marginBottom = '0';
-			productItem.previousElementSibling.style.marginBottom = '0';
-			productItem.previousElementSibling.previousElementSibling.style.marginBottom = '0';
-		} else if(document.documentElement.clientWidth < 990) {
-			productItem.style.marginBottom = '0';
-		}
-	}
-	changeProductItemMargin()
-	window.onresize = () => {
-		changeProductItemMargin()
-	}
-	//===changeProductItemMargin===
-
-
-
 	//===size button===
 	//===create btnCover===
 	let productSize = document.getElementsByClassName('product__size');
@@ -147,6 +126,13 @@ $(function() {
 
 		document.querySelector(attribute).scrollIntoView({block: "start", behavior: "smooth"});
 	};
+
+
+	let sectionTopBtn = document.getElementById('section-top__btn');
+	sectionTopBtn.onclick = (event) => {
+		event.preventDefault();
+		document.querySelector('.catalog').scrollIntoView({block: "start", behavior: "smooth"});
+	};
 	//===scroll===
 
 
@@ -216,4 +202,35 @@ $(function() {
 		successPopup.classList.add('popup_active');
 	};
 	//===order btn===
+
+
+	//===product filter===
+	let productWrapper = document.getElementsByClassName('product__item');
+	for(let i = 0; i < productWrapper.length; i++) {
+		productWrapper[i].classList.add('mix');
+	};
+
+	var mixer = mixitup('.product__list', {
+		"animation": {
+			"duration": 500,
+			"nudge": true,
+			"reverseOut": false,
+			"effects": "fade translateZ(-100px)"
+		}
+	});
+
+
+	let catalogNavList = document.getElementById('catalog__nav-list');
+
+	catalogNavList.onclick = (event) => {
+		let catalogNavItem = document.getElementsByClassName('catalog__nav-item');
+		for(let i = 0; i < catalogNavItem.length; i++) {
+			catalogNavItem[i].classList.remove('catalog__nav-item_active');
+		}
+
+		let target = event.target;
+
+		target.parentNode.classList.add('catalog__nav-item_active');
+	};
+	//===product filter===
 });

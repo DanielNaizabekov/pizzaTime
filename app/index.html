@@ -84,7 +84,7 @@
 				<div class="section-top__content">
 					<span class="section-top__subtitle">от итальянского повара</span>
 					<h1 class="section-top__title">Лучшая пицца в мире</h1>
-					<a class="section-top__btn" href="#">Выбрать</a>
+					<a class="section-top__btn" href=".catalog" id="section-top__btn">Выбрать</a>
 				</div>
 			</div>
 		</section>
@@ -98,18 +98,18 @@
 				<div class="catalog__header">
 					<h3 class="title catalog__title">Меню</h3>
 					<nav class="catalog__nav">
-						<ul class="catalog__nav-list">
-							<li class="catalog__nav-item catalog__nav-item_active"> <span>все</span> </li>
-							<li class="catalog__nav-item"> <span>грибные</span> </li>
-							<li class="catalog__nav-item"> <span>мясные</span> </li>
-							<li class="catalog__nav-item"> <span>сырные</span> </li>
+						<ul class="catalog__nav-list" id="catalog__nav-list">
+							<li class="catalog__nav-item catalog__nav-item_active"> <button data-filter="all">все</button> </li>
+							<li class="catalog__nav-item"> <button data-filter=".mushroom">грибные</button> </li>
+							<li class="catalog__nav-item"> <button data-filter=".meat">мясные</button> </li>
+							<li class="catalog__nav-item"> <button data-filter=".cheese">сырные</button> </li>
 						</ul>
 					</nav>
 				</div>
 
 				<div class="product-wrap">
-					<ul class="product__list"  id="product__list">
-						<li class="product__item">
+					<ul class="product__list" id="product__list">
+						<li class="product__item mushroom">
 							<img class="product__img" src="img/1.png.png" alt="#">
 							<h4 class="product__name">Салями</h4>
 							<p class="product__description">
@@ -127,7 +127,7 @@
 								<button class="product__order">заказать</button>
 							</div>
 						</li>
-						<li class="product__item">
+						<li class="product__item meat">
 							<img class="product__img" src="img/2.png" alt="#">
 							<h4 class="product__name">Хит</h4>
 							<p class="product__description">
@@ -145,7 +145,7 @@
 								<button class="product__order">заказать</button>
 							</div>
 						</li>
-						<li class="product__item">
+						<li class="product__item cheese">
 							<img class="product__img" src="img/3.png" alt="#">
 							<h4 class="product__name">Ветчина-грибы</h4>
 							<p class="product__description">
@@ -163,7 +163,7 @@
 								<button class="product__order">заказать</button>
 							</div>
 						</li>
-						<li class="product__item">
+						<li class="product__item cheese">
 							<img class="product__img" src="img/4.png" alt="#">
 							<h4 class="product__name">Карбонара</h4>
 							<p class="product__description">
@@ -181,7 +181,7 @@
 								<button class="product__order">заказать</button>
 							</div>
 						</li>
-						<li class="product__item">
+						<li class="product__item meat">
 							<img class="product__img" src="img/5.png" alt="#">
 							<h4 class="product__name">Фирменная</h4>
 							<p class="product__description">
@@ -199,7 +199,7 @@
 								<button class="product__order">заказать</button>
 							</div>
 						</li>
-						<li class="product__item">
+						<li class="product__item mushroom">
 							<img class="product__img" src="img/6.png" alt="#">
 							<h4 class="product__name">Ассорти</h4>
 							<p class="product__description">
@@ -217,7 +217,7 @@
 								<button class="product__order">заказать</button>
 							</div>
 						</li>
-						<li class="product__item">
+						<li class="product__item meat">
 							<img class="product__img" src="img/7.png" alt="#">
 							<h4 class="product__name">Л-01</h4>
 							<p class="product__description">
@@ -235,7 +235,7 @@
 								<button class="product__order">заказать</button>
 							</div>
 						</li>
-						<li class="product__item">
+						<li class="product__item meat">
 							<img class="product__img" src="img/8.png" alt="#">
 							<h4 class="product__name">Три сыра</h4>
 							<p class="product__description">
@@ -251,7 +251,7 @@
 								<button class="product__order">заказать</button>
 							</div>
 						</li>
-						<li class="product__item">
+						<li class="product__item mushroom">
 							<img class="product__img" src="img/9.png" alt="#">
 							<h4 class="product__name">Мясная</h4>
 							<p class="product__description">

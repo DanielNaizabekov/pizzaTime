@@ -1,3 +1,6 @@
+.catalog
+	padding-bottom: 0
+
 .catalog__header
 	max-width: 650px
 	margin: 0 auto
@@ -20,21 +23,24 @@
 .catalog__nav-item:last-child
 	border: 0
 
-.catalog__nav-item span
+.catalog__nav-item button
 	+font($default_font, rem(18px), #e6e6e6, 800)
 	padding: rem(15px) 0
 	display: inline-block
 	height: 100%
 	width: 100%
 	cursor: pointer
-.catalog__nav-item span:hover
+	background: #fff
+	border: none
+	outline: none
+.catalog__nav-item button:hover
 	background: #1f1f1f
 	color: $default_color
 
 .catalog__nav-item_active
 	border-color: #1f1f1f
 
-.catalog__nav-item_active span
+.catalog__nav-item_active button
 	background: #1f1f1f
 	color: $default_color
 
